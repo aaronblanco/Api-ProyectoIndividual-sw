@@ -9,3 +9,9 @@ class Personajes(db.Model):
     name = db.Column(db.String(100))
     edad = db.Column(db.Integer)
 
+class SableLaser(db.Model):
+    __tablename__ = 'Sables'
+    id = db.Column(db.Integer, primary_key=True)
+    color = db.Column(db.String(100))
+
+
