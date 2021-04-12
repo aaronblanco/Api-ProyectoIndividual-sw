@@ -60,7 +60,7 @@ def addLaser():
 
 
 @app.route('/sablesLaser', methods=['GET'])
-def getpersonajes():
+def getsables():
     SablesLaser = database.get_all(SableLaser)
     if SablesLaser is None:
         return json("La bd está vacía.")
@@ -84,7 +84,7 @@ def getpersonajes():
 
 
 @app.route('/sablesLaser/<string:sablesLaser_color>', methods=['DELETE'])
-def deletepersonaje(sablesLaser_color):
+def deletesables(sablesLaser_color):
    database.delete_instance(Personajes, color=sablesLaser_color)
 
 
