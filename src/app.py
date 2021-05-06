@@ -3,9 +3,9 @@ from flask import request
 from flask import render_template
 from .models import Character, Planets, Starships
 from . import inicio, database
-    
 
 app = inicio()
+
 app.debug = True
 
 @app.route('/')
