@@ -7,6 +7,7 @@ import { PaginaPrincipalComponent } from './pagina-principal/pagina-principal.co
 import { StarshipComponent } from './starship/starship.component';
 import { PlanetComponent } from './planet/planet.component';
 import { CharacterComponent } from './character/character.component';
+import { IntroComponent } from './intro/intro.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { CharacterComponent } from './character/character.component';
     PaginaPrincipalComponent,
     StarshipComponent,
     PlanetComponent,
-    CharacterComponent
+    CharacterComponent,
+    IntroComponent
   ],
   imports: [
     BrowserModule,
