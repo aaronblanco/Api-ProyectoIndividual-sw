@@ -23,6 +23,14 @@ for (let i = 0; i < numStars; i++) {
   document.body.append(star);
 }
 
+for (let i = 0; i < 20; i++) {
+  let star = document.createElement("div");  
+  star.className = "star2";
+  var xy = getRandomPosition();
+    star.style.top = xy[0] + 'px';
+    star.style.left = xy[1] + 'px';
+  document.body.append(star);
+}
 // Gets random x, y values based on the size of the container
 function getRandomPosition() {  
   var y = window.innerWidth;

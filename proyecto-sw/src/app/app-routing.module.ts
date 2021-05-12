@@ -4,13 +4,17 @@ import { CharacterComponent } from './character/character.component';
 import { IntroComponent } from './intro/intro.component';
 import { PlanetComponent } from './planet/planet.component';
 import { StarshipComponent } from './starship/starship.component';
+import { PageNotFoundComponentComponent } from './page-not-found-component/page-not-found-component.component';
+import { PaginaPrincipalComponent } from './pagina-principal/pagina-principal.component';
 /*Creamos las rutas.*/ 
 const routes: Routes = [
-  { path: '', redirectTo: '/', pathMatch: 'full' },
+  { path: '', component: PaginaPrincipalComponent },
   { path: 'starship', component: StarshipComponent },
   { path: 'planets', component: PlanetComponent },
   { path: 'character', component: CharacterComponent },
+  { path: '**', component: PageNotFoundComponentComponent },
   { path: 'intro', component: IntroComponent }
+  
   /*
   { path: 'detail/:id', component: HeroDetailComponent },
   { path: 'heroes', component: HeroesComponent } */

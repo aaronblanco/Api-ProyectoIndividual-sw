@@ -2,13 +2,18 @@
   .contenedor {
     font-size: 200%;
     place-items: center;
-    min-height: 660px;
+    min-height: 100px;
     text-align: center;
     display: grid;
     grid-template-areas:
     'titulo'
     'menu'
-    'intro';
+    'intro'
+    'logo';
+
+    vertical-align: baseline;
+    box-sizing: content-box;
+    
   }
   .menu{
     font-size: large;
@@ -19,9 +24,11 @@
     grid-template-areas:
     'enlace1 enlace2 enlace3';
     gap: 20px;
-    padding-top: 30px;
-    padding-bottom: 30px;
+    padding: 30px;
+
+
     background-color: grey;
+    border-radius: 1%;
   }
   .enlace1{
     grid-area: enlace1;
@@ -54,7 +61,7 @@
     display: inline;
     width: 100%;
     height: 100%;
-    
+    border-radius: 2%;
 
   }
   .ruta {

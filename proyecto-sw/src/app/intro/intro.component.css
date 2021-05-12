@@ -1,7 +1,6 @@
 .intro {
-  position: absolute;
-  top: 70%;
-  left: 35%;
+  position: relative;
+  top: auto;
   z-index: 1;
   animation: intro 6s ease-out 1s;
   color: rgb(75, 213, 238);
@@ -9,6 +8,7 @@
   font-size: 300%;
   opacity: 0;
   grid-area: titulo;
+  margin-top: 100px;
 }
 
 @keyframes intro {
@@ -28,18 +28,18 @@
 
 /* Set the animation & hide the logo */
 .logo {    
-  position: absolute;
-  top: 70%;
-  left: 45%;
+  position: static;
   z-index: 1;
-  margin: auto;
   animation: logo 9s ease-out 9s;
   opacity: 0;
+  margin: auto;
+  width: 50%;
 
 }
 
 .logo svg {
   width: inherit;
+
 }
 
 /* Scale the logo down and maintain it centered */
@@ -67,9 +67,9 @@ color: #FFFF82;
 /* Set the font, lean the board, position it */
 #board {
 font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
-transform: perspective(300px) rotateX(25deg);
+transform: perspective(200px) rotateX(25deg);
 transform-origin: 50% 100%;
-text-align: justify;
+text-align: center;
 position: absolute;
 margin-left: -9em;
 font-weight: bold;
@@ -79,13 +79,13 @@ height: 50em;
 width: 18em;
 bottom: 0;
 left: 50%;
-
+margin-top: 100px;
 }
 
 #board:after {    
 position: absolute;
 content: ' ';
-bottom: 60%;
+bottom: 40%;
 left: 0;
 right: 0;
 top: 0;
@@ -94,7 +94,7 @@ top: 0;
 
 /* Set the scrolling animation and position it */
 #content {
-animation: scroll 100s linear 16s;
+animation: scroll 90s linear 16s;
 position: absolute;
 top: 100%;
 

@@ -7,26 +7,25 @@
  
 <div class="menu">
   <div class="enlace1">
-    <img src="assets/images/starship.jpg" alt="Avatar" class="image img1" >
+    <img src="assets/images/starship.jpg" alt="Avatar" class="image img1" (click)="navigateStarship()">
      <div class="ruta ruta1">
          <a routerLink="/starship">Naves</a>
       </div>
   </div>
   <div class="enlace2">
-    <img src="assets/images/planets.jpg" alt="Avatar" class="image img2" >
+    <img src="assets/images/planets.jpg" alt="Avatar" class="image img2" (click)="navigatePlanets()" >
      <div class="ruta ruta2">
         <a routerLink="/planets">Planetas</a>
       </div>
   </div>
   <div class="enlace3">
-    <img src="assets/images/character.jpg" alt="Avatar" class="image img3" >
+      <img src="assets/images/character.jpg" alt="Avatar" class="image img3" (click)="navigateCharacter()" >
       <div class="ruta ruta3">
-        <a routerLink="/character">Personajes</a>
+        <a routerLink="/character"> Personajes</a>
       </div>
   </div>
-
 </div>
-<app-intro></app-intro>
+  <app-intro></app-intro>
 
 </div>
 

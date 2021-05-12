@@ -1,6 +1,4 @@
-  /* Application-wide Styles */
-
-  body {
+body {
     background-color: black;
     font-family: Arial, Helvetica, sans-serif;
   }
@@ -10,7 +8,10 @@
     height: 1px;
     background-color: white;
   }
-  
-
-  /* Set the animation, color, size and hide the text */
+  .star2 {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background-color: white;
+  }
   
