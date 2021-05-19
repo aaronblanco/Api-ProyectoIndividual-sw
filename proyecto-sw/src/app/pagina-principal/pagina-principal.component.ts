@@ -13,13 +13,5 @@ export class PaginaPrincipalComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  navigateCharacter(){
-    this.router.navigate(['/character']);
-  }
-  navigateStarship(){
-    this.router.navigate(['/starship']);
-  }
-  navigatePlanets(){
-    this.router.navigate(['/planets']);
-  }
+
 }

@@ -1,8 +1,13 @@
 import json
 from flask import request
 from flask import render_template
-from .models import Character, Planets, Starships
+from flask_sqlalchemy import model
 from . import inicio, database
+from .models import Character, Planets, Starships
+
+#from flask_cors import CORS, cross_origin
+
+
 
 app = inicio()
 
@@ -18,11 +23,12 @@ def index():
 def addCharacter():
     character = request.get_json()
     name = character['name']
-    edad = character['edad']
+    age = character['age']
     gender = character['gender']
     species = character['species']
     weapon = character['weapon']
-    database.add_instance(Character, name = name, edad = edad, gender = gender, species = species, weapon = weapon)
+    url = character['url']
+    database.add_instance(Character, name = name, age = age, gender = gender, species = species, weapon = weapon,  url = url)
    
     return json.dumps("Añadido"), 200
 
@@ -38,16 +44,35 @@ def getCharacter():
         new_character = {
             "id": character.id,
             "name": character.name,
-            "edad": character.edad,
+            "age": character.age,
             "gender": character.gender,
             "species": character.species,
             "weapon": character.weapon,
+            "url": character.url,
         }
 
         character_all.append(new_character)
     return json.dumps(character_all), 200
   
-  
+@app.route('/character/<id>', methods=['GET'])
+def getCharacterId(id):
+    character = database.get_id(Character, id)
+    if character is None:
+        return json.dumps("BBDD is empty."), 200
+
+    new_character = {
+            "id": character.id,
+            "name": character.name,
+            "age": character.age,
+            "gender": character.gender,
+            "species": character.species,
+            "weapon": character.weapon,
+            "url": character.url,
+        }
+
+    return json.dumps(new_character), 200    
+    
+
 
 @app.route('/character/<string:character_name>', methods=['DELETE'])
 def deleteCharacter(character_name):
@@ -62,7 +87,8 @@ def addPlanet():
     population =  planet['population']
     diameter = planet['diameter']
     species =  planet['species']
-    database.add_instance(Planets, name = name, population = population, diameter = diameter, species = species)
+    url = planet['url']
+    database.add_instance(Planets, name = name, population = population, diameter = diameter, species = species,  url = url)
    
     return json.dumps("Añadido"), 200
 
@@ -81,6 +107,7 @@ def getPlanet():
             "population": planet.population,
             "diameter": planet.diameter,
             "species": planet.species,
+            "url": planet.url,
         }
 
         planet_all.append(new_planet)
@@ -100,7 +127,8 @@ def addStarship():
     model =  starship['model']
     length = starship['length']
     starship_class =  starship['starship_class']
-    database.add_instance(Starships, name = name, model = model, length = length, starship_class = starship_class)
+    url = starship['url']
+    database.add_instance(Starships, name = name, model = model, length = length, starship_class = starship_class,  url = url)
    
     return json.dumps("Añadido"), 200
 
@@ -119,6 +147,8 @@ def getStarship():
             "model": starship.model,
             "length": starship.length,
             "starship_class": starship.starship_class,
+             "url": starship.url,
+            
         }
 
         starship_all.append(new_planet)
@@ -134,7 +164,7 @@ def deleteStarship(starship_name):
 
 {
 	"name" : "Obi-Wan Kenobi",
-    "edad" : 35,
+    "age" : 35,
     "gender" : "Hombre",
     "species" : "Humano",
     "weapon" : "Sable Laser"

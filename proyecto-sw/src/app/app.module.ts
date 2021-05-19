@@ -10,6 +10,15 @@ import { CharacterComponent } from './character/character.component';
 import { IntroComponent } from './intro/intro.component';
 import { PageNotFoundComponentComponent } from './page-not-found-component/page-not-found-component.component';
 import { MessagesComponent } from './messages/messages.component';
+import { CharacterDetailComponent } from './character-detail/character-detail.component';
+import { PlanetDetailComponent } from './planet-detail/planet-detail.component';
+import { StarshipDetailComponent } from './starship-detail/starship-detail.component';
+import { FooterComponent } from './footer/footer.component';
+import { MenuComponent } from './menu/menu.component';
+import { HeaderComponent } from './header/header.component';
+import { NewCharacterComponent } from './new-character/new-character.component';
+import { FormsModule } from '@angular/forms';
+import { CharacterInfoComponent } from './character-info/character-info.component';
 
 @NgModule({
   declarations: [
@@ -20,12 +29,22 @@ import { MessagesComponent } from './messages/messages.component';
     CharacterComponent,
     IntroComponent,
     PageNotFoundComponentComponent,
-    MessagesComponent
+    MessagesComponent,
+    CharacterDetailComponent,
+    PlanetDetailComponent,
+    StarshipDetailComponent,
+    FooterComponent,
+    MenuComponent,
+    HeaderComponent,
+    NewCharacterComponent,
+    CharacterInfoComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

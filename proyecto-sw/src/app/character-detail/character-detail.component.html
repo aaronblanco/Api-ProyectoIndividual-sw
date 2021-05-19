@@ -1,0 +1,21 @@
+        <div class="card-container">
+        <div></div>
+                <div *ngFor="let character of characterList" class="card" (click)="mostrarInfo(character.id)"  >
+                       
+                                        <div class="card-content">
+                                            <img src="{{character.url}}" alt="Imagen {{character.name}}"> 
+                                            <div class="card-title">
+                                        
+                                                <span class="card-text">{{character.name}}</span>
+                                            
+                                            </div>    
+                               
+                                        </div>
+                                    
+                                      
+                        
+                </div>
+            <div></div>
+         </div>
+
+        <app-character-info *ngIf="mostrar" characterId]="id" > </app-character-info>

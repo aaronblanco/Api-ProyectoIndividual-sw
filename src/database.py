@@ -1,8 +1,12 @@
 from .models import db
-
+##Metodos de la db
 
 def get_all(model):
     data = model.query.all()
+    return data
+
+def get_id(model, id):
+    data = model.query.get(id)
     return data
 
 

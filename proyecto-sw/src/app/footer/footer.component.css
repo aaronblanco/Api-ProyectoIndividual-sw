@@ -1,0 +1,21 @@
+footer.example {
+    padding-left: 0;
+}
+.page-footer {
+    color: #fff;
+    background-color: grey;
+}
+footer {
+    font-size: .9rem;
+}
+
+header, main, footer {
+    padding-left: 300px;
+}
+ footer, header {
+    display: block;
+}
+
+footer {
+    display: block;
+}

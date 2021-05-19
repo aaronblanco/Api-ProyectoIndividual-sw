@@ -1,0 +1,24 @@
+p {
+    color: rgb(0, 0, 0);
+}
+.containerModal{
+
+position: absolute;
+background-color: rgba(255,255,255,1);
+height: 50vh;
+width: 50vw;
+top: 5vh;
+bottom: 25vh;
+left: 25vw;
+right: 25vw;
+z-index: 9000;
+box-shadow: 0 8px 16px 0 rgba(255,255,255,0.5);
+
+transition: 0.3s;
+
+}
+/*box-shadow: 0 4px 8px 0 rgba(255,255,255,0.2);
+  .card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  }
+  */

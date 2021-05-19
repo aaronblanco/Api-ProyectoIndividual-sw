@@ -1,0 +1,121 @@
+
+  .menu{
+    font-size: large;
+    place-items: center;
+    width: 100%;
+    grid-area: menu;
+    display: grid;
+    grid-template-areas:
+    'enlace1 enlace2 enlace3';
+    gap: 20px;
+    padding: 30px;
+
+
+    background-color: rgba(128, 128, 128, 0.534);
+    border-radius: 1%;
+  }
+  .enlace1{
+    grid-area: enlace1;
+    text-align: left;
+    font-size: 2rem;
+    height: 300px;
+    width: 300px;
+    
+  }
+  .enlace2{
+    grid-area: enlace2;
+    text-align: center;
+    font-size: 2rem;
+    height: 300px;
+    width: 300px;
+  }
+  .enlace3{
+    grid-area: enlace3;
+    text-align: right;
+    font-size: 2rem;
+    height: 300px;
+    width: 300px;
+  }
+
+  .image{
+    opacity: 1;
+    display: inline;
+    width: 100%;
+    height: 100%;
+    border-radius: 2%;
+
+  }
+  .ruta {
+    transition: .5s ease;
+    opacity: 0;
+    position: relative;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+    
+  }
+    
+  a{
+    
+    background-color: grey;
+    color: white;
+    font-size: 16px;
+    padding: 16px 32px;
+      
+  }
+
+  .enlace1:hover .img1 {
+    opacity: 0.3;
+    transition: .5s ease;
+    backface-visibility: hidden;
+    
+  }
+  
+  .enlace2:hover .img2 {
+    opacity: 0.3;
+    transition: .5s ease;
+    backface-visibility: hidden;
+  }
+  .img2 {
+    position: relative;
+    display: grid;
+    max-width: 100% !important;
+    height: auto !important;
+    top: 20%;
+  }
+  .img1 {
+    position: relative;
+    display: grid;
+    max-width: 100% !important;
+    height: auto !important;
+    top: 20%;
+  }
+
+  .img3 {
+    position: relative;
+    display: grid;
+    max-width: 100% !important;
+    height: auto !important;
+    top: 20%;
+  }
+
+
+  .enlace3:hover .img3 {
+    opacity: 0.3;
+    transition: .5s ease;
+    backface-visibility: hidden;
+  }
+  
+  .enlace1:hover .ruta1 {
+    opacity: 1;
+  }
+
+  .enlace2:hover .ruta2 {
+    opacity: 1;
+  }
+
+  .enlace3:hover .ruta3 {
+    opacity: 1;
+  }

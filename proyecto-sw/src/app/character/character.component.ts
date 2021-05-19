@@ -10,20 +10,33 @@ import { Character } from './character.model';
 })
 export class CharacterComponent implements OnInit {
   name = 'app';
-  characterListSub: Subscription;
-  characterList: Character[];
+ // characterListSub: Subscription;
+  characterList: Character[] = [];
   
-  constructor(private http: SwServicesService) { }
+  constructor() { }
 
+
+  ngOnInit() {
+   
+  }
+
+ 
+
+/*
   ngOnInit(): void {
     this.characterListSub = this.http.getCharacters().subscribe(res => {
       this.characterList = res;
+     
     },
     console.error
     );
 
   }
+*/
+
+/*
+
   ngOnDestry(){
     this.characterListSub.unsubscribe();
-  }
+  }*/
 }

@@ -1,15 +1,32 @@
 version: '3.5'
 services:
+  web:
+    build: ./src
+    command: FLASK_APP=app.py
+    command: flask run
+    volumes:
+      - ./src/:/usr/src/app/
+    ports:
+      - 5000:5000
+    env_file:
+      - ./env.conf
+    depends_on:
+      - database
+
   database:
     container_name: postgres
     image: postgres:latest
-    environment: 
-      env_file: database.conf
+    restart: always
+    environment:  
+    - POSTGRES_USER=postgres
+    - POSTGRES_PASSWORD=postgres
+    - POSTGRES_DB=postgres
     ports:
       - 5432:5432  
     volumes:
       - db_volume:/var/lib/postgresql
-    
+  
+      
 
 volumes:
   db_volume:

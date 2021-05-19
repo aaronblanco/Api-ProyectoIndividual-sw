@@ -2,9 +2,9 @@ import os
 
 user='postgres'
 password='postgres'
-host='localhost'
+host='postgres'
 port=5432
-database='apiDra'
+database='postgres'
 
 DATABASE_CONNECTION_URI = f'postgresql+psycopg2://{user}:{password}@{host}:{port}/{database}'
 
