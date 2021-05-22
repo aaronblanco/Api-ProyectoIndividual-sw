@@ -6,7 +6,9 @@ export class Character{
         public gender: string,
         public species: string,
         public weapon: string,
-        public url: string){
+        public url: string,
+        public starship: string[]
+        ){
     }
 /* 
     id: number;

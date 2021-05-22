@@ -1,17 +1,16 @@
 import json
-from flask import request
+from operator import add
+from flask import request, jsonify
 from flask import render_template
 from flask_sqlalchemy import model
 from . import inicio, database
 from .models import Character, Planets, Starships
-
-#from flask_cors import CORS, cross_origin
+from flask_cors import CORS, cross_origin
 
 
 
 app = inicio()
-
-app.debug = True
+CORS(app)
 
 @app.route('/')
 def index():
@@ -22,14 +21,17 @@ def index():
 @app.route('/character', methods=['POST'])
 def addCharacter():
     character = request.get_json()
+    print(character)
     name = character['name']
     age = character['age']
     gender = character['gender']
     species = character['species']
     weapon = character['weapon']
     url = character['url']
-    database.add_instance(Character, name = name, age = age, gender = gender, species = species, weapon = weapon,  url = url)
-   
+    #if character is not None:
+    #    starships = character['starships']starships = starships
+    database.add_instance(Character, name = name, age = age, gender = gender, species = species, weapon = weapon,  url = url )
+    #starship = starship
     return json.dumps("Añadido"), 200
 
 
@@ -38,9 +40,12 @@ def getCharacter():
     characters = database.get_all(Character)
     if characters is None:
         return json.dumps("BBDD is empty."), 200
-
+    #print(characters)
     character_all = []
+    naves = []
     for character in characters:
+
+       
         new_character = {
             "id": character.id,
             "name": character.name,
@@ -48,10 +53,21 @@ def getCharacter():
             "gender": character.gender,
             "species": character.species,
             "weapon": character.weapon,
-            "url": character.url,
+            "url": character.url, 
+            "starships": "", 
         }
 
+        for nave in character.starships:
+            new_naves ={
+                    "id": nave.id,
+                    "name": nave.name,
+                }
+            new_character["starships"]=new_naves
+         
         character_all.append(new_character)
+
+
+
     return json.dumps(character_all), 200
   
 @app.route('/character/<id>', methods=['GET'])
@@ -59,7 +75,7 @@ def getCharacterId(id):
     character = database.get_id(Character, id)
     if character is None:
         return json.dumps("BBDD is empty."), 200
-
+    character_all = []
     new_character = {
             "id": character.id,
             "name": character.name,
@@ -67,8 +83,22 @@ def getCharacterId(id):
             "gender": character.gender,
             "species": character.species,
             "weapon": character.weapon,
-            "url": character.url,
+            "url": character.url, 
+            "starships": "", 
         }
+
+        
+    #character_all.append(new_character)
+    
+    for nave in character.starships:
+        new_naves ={
+                   "id": nave.id,
+                   "name": nave.name,
+            }
+        new_character["starships"]=new_naves
+    
+    character_all.append(new_character)
+
 
     return json.dumps(new_character), 200    
     
@@ -77,6 +107,49 @@ def getCharacterId(id):
 @app.route('/character/<string:character_name>', methods=['DELETE'])
 def deleteCharacter(character_name):
    database.delete_instance(Character, name=character_name)
+## STARSHIPS
+
+@app.route('/starship', methods=['POST'])
+def addStarship():
+    starship = request.get_json()
+    name = starship['name']
+   # model =  starship['model']
+    print(starship)
+    length = starship['length']
+    starship_class =  starship['starship_class']
+    url = starship['url']
+    character_id = starship['character_id']
+    database.add_instance(Starships, name = name, length = length, starship_class = starship_class,  url = url, character_id = character_id)
+   
+    return json.dumps("Añadido"), 200
+
+
+
+@app.route('/starship', methods=['GET'])
+def getStarship():
+    starships = database.get_all(Starships)
+    if starships is None:
+        return json.dumps("BBDD is empty."), 200
+
+    starship_all = []
+    for starship in starships:
+        new_planet = {
+            "id": starship.id,
+            "name": starship.name,
+     #       "model": starship.model,
+            "length": starship.length,
+            "starship_class": starship.starship_class,
+            "url": starship.url,
+           
+        }
+
+        starship_all.append(new_planet)
+    return json.dumps(starship_all), 200
+  
+
+@app.route('/starship/<string:starship_name>', methods=['DELETE'])
+def deleteStarship(starship_name):
+   database.delete_instance(Starships, name=starship_name)
 
 ## PLANETS
 
@@ -118,46 +191,6 @@ def getPlanet():
 def deletesables(planet_name):
    database.delete_instance(Planets, name=planet_name)
 
-## STARSHIPS
-
-@app.route('/starship', methods=['POST'])
-def addStarship():
-    starship = request.get_json()
-    name = starship['name']
-    model =  starship['model']
-    length = starship['length']
-    starship_class =  starship['starship_class']
-    url = starship['url']
-    database.add_instance(Starships, name = name, model = model, length = length, starship_class = starship_class,  url = url)
-   
-    return json.dumps("Añadido"), 200
-
-
-@app.route('/starship', methods=['GET'])
-def getStarship():
-    starships = database.get_all(Starships)
-    if starships is None:
-        return json.dumps("BBDD is empty."), 200
-
-    starship_all = []
-    for starship in starships:
-        new_planet = {
-            "id": starship.id,
-            "name": starship.name,
-            "model": starship.model,
-            "length": starship.length,
-            "starship_class": starship.starship_class,
-             "url": starship.url,
-            
-        }
-
-        starship_all.append(new_planet)
-    return json.dumps(starship_all), 200
-  
-
-@app.route('/starship/<string:starship_name>', methods=['DELETE'])
-def deleteStarship(starship_name):
-   database.delete_instance(Starships, name=starship_name)
 
 #Ejemplo prueba.
 """
@@ -167,7 +200,9 @@ def deleteStarship(starship_name):
     "age" : 35,
     "gender" : "Hombre",
     "species" : "Humano",
-    "weapon" : "Sable Laser"
+    "weapon" : "Sable Laser",
+	"url" : "url",
+    "starship" : ["query", "form", "json"]
 }
 
 

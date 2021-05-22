@@ -1,4 +1,19 @@
 .contenedor {
-    background-color: white;
-    font-family: Arial, Helvetica, sans-serif;
-  }
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  display: grid;
+  grid-template-rows: auto;
+  place-items: center;
+
+}
+
+
+
+
+.contenedor2 {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  place-items: center;
+  
+}

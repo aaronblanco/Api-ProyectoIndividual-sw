@@ -1,9 +1,11 @@
 
 <div class="contenedor">
-  <h2>Planets</h2>
-  <ul>
-    <li *ngFor="let planet of planetList">
-    {{planet.name}}
-    </li>
-  </ul>
+ 
+<div class="contenedor2">
+    <app-planet-detail></app-planet-detail>
+    
+    <div>
+          <a routerLink="newplanet"> New Planet</a>
+    </div>
+  </div> 
 </div>

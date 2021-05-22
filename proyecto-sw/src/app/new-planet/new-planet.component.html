@@ -1,0 +1,28 @@
+<div class="formulario">
+    <div>
+    <h2>New planet</h2> 
+    <form (ngSubmit)="addPlanet(myForm)" #myForm="ngForm"  class="form">
+
+        <label for="name">planet name: </label>
+        <input id="new-planet" type="text" required name="name" [(ngModel)]="planet.name"/>
+
+       
+        <label for="population">planet population: </label>
+        <input id="new-planet-population" type="number" name="population" [(ngModel)]="planet.population"/>
+
+        <label for="diameter">planet diameter: </label>
+        <input id="new-planet-diameter" type="number" name="diameter" [(ngModel)]="planet.diameter"/>
+        
+        <label for="species">planet species: </label>
+        <input id="new-planet-species" type="text" name="species" [(ngModel)]="planet.species"/>
+
+        <label for="url">planet url: </label>
+        <input id="new-planet-url" type="text" name="url" [(ngModel)]="planet.url"/>
+
+        <button  routerLink="/">Back</button>
+        <button  type="submit" [disabled]="!myForm.form.valid">Add</button>
+    </form>
+
+    </div>
+       
+</div>

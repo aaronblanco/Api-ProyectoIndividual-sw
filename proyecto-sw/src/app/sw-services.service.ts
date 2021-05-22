@@ -15,7 +15,7 @@ import { Starship } from './starship/starship.model';
 export class SwServicesService {
   private characterUrl = `${API_URL}/character`;
   private planetUrl = `${API_URL}/planet`;
-  private starshipUrl = `${API_URL}/starships`;
+  private starshipUrl = `${API_URL}/starship`;
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
@@ -52,7 +52,7 @@ export class SwServicesService {
   getStarships(): Observable<Starship[]> {
     return this.http.get<Starship[]>(this.starshipUrl)
       .pipe(
-        tap(_ => this.log('fetched starships')),
+        tap(_ => this.log('fetched starship')),
         catchError(this.handleError<Starship[]>('getStarships', []))
       );
   }

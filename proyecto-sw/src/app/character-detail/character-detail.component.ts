@@ -1,4 +1,4 @@
-import { Component, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Character } from '../character/character.model';
 import { SwServicesService } from '../sw-services.service';
 //activatedRoute?
@@ -15,17 +15,22 @@ export class CharacterDetailComponent implements OnInit {
   // characterListSub: Subscription;
    characterList: Character[] = [];
    id: string
-   @Output () salir;
+   
 
    constructor(private http: SwServicesService) { }
  
+
  
    ngOnInit() {
      this.getCharacters();
     
     
     }
- 
+    //Si ha saltado close es debido al output.
+    close(value: string) {
+     this.mostrar = false;
+     }
+
     mostrarInfo(id): void{
       this.id = id;
       this.mostrar = true;

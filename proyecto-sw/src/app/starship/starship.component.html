@@ -1,9 +1,11 @@
 
 <div class="contenedor">
-  <h2>Starships</h2>
-  <ul>
-    <li *ngFor="let starships of starshipList">
-    {{starships.name}}
-    </li>
-  </ul>
+ 
+<div class="contenedor2">
+    <app-starship-detail></app-starship-detail>
+    
+    <div>
+          <a routerLink="newstarship"> New starship</a>
+    </div>
+  </div> 
 </div>

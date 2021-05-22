@@ -1,0 +1,26 @@
+<div class="formulario">
+    <div>
+    <h2>New starship</h2> 
+    <form (ngSubmit)="addStarship(myForm)" #myForm="ngForm"  class="form">
+
+        <label for="name">starship name: </label>
+        <input id="new-starship" type="text" required name="name" [(ngModel)]="starship.name"/>
+
+        <label for="length">starship length: </label>
+        <input id="new-starship-length" type="number" required name="length" [(ngModel)]="starship.length"/>
+
+
+        <label for="starship_class">starship starship_class: </label>
+        <input id="new-starship-starship_class" type="text" name="starship_class" [(ngModel)]="starship.starship_class"/>
+        
+         <label for="url">starship url: </label>
+        <input id="new-starship-url" type="text" name="url" [(ngModel)]="starship.url"/>
+
+        
+        <button  routerLink="/">Back</button>
+        <button  type="submit" [disabled]="!myForm.form.valid">Add</button>
+    </form>
+
+    </div>
+        
+</div>

@@ -6,26 +6,20 @@
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <!--Import materialize.css-->
-   <link href="/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
 </head>
 <body>
   <app-root></app-root>
-  <!--JavaScript at end of body for optimized loading-->
-
-  <script src="/js/materialize.js"></script>
-  <script src="/js/init.js"></script>
-
+  
   <script>
-// Sets the number of stars we wish to display
+
 
 
 
 const numStars = 100;
-// For every star we want to display
 for (let i = 0; i < numStars; i++) {
   let star = document.createElement("div");  
   star.className = "star";

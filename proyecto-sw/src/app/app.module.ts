@@ -19,6 +19,10 @@ import { HeaderComponent } from './header/header.component';
 import { NewCharacterComponent } from './new-character/new-character.component';
 import { FormsModule } from '@angular/forms';
 import { CharacterInfoComponent } from './character-info/character-info.component';
+import { NewPlanetComponent } from './new-planet/new-planet.component';
+import { NewStarshipComponent } from './new-starship/new-starship.component';
+import { PlanetInfoComponent } from './planet-info/planet-info.component';
+import { StarshipInfoComponent } from './starship-info/starship-info.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +41,11 @@ import { CharacterInfoComponent } from './character-info/character-info.componen
     MenuComponent,
     HeaderComponent,
     NewCharacterComponent,
-    CharacterInfoComponent
+    CharacterInfoComponent,
+    NewPlanetComponent,
+    NewStarshipComponent,
+    PlanetInfoComponent,
+    StarshipInfoComponent
   ],
   imports: [
     BrowserModule,

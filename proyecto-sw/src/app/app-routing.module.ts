@@ -7,6 +7,8 @@ import { StarshipComponent } from './starship/starship.component';
 import { PageNotFoundComponentComponent } from './page-not-found-component/page-not-found-component.component';
 import { PaginaPrincipalComponent } from './pagina-principal/pagina-principal.component';
 import { NewCharacterComponent } from './new-character/new-character.component';
+import { NewPlanetComponent } from './new-planet/new-planet.component';
+import { NewStarshipComponent } from './new-starship/new-starship.component';
 /*Creamos las rutas.*/ 
 const routes: Routes = [
   { path: '', component: PaginaPrincipalComponent },
@@ -14,6 +16,8 @@ const routes: Routes = [
   { path: 'planets', component: PlanetComponent },
   { path: 'character', component: CharacterComponent },
   { path: 'character/newcharacter', component: NewCharacterComponent },
+  { path: 'planets/newplanet', component: NewPlanetComponent },
+  { path: 'starship/newstarship', component: NewStarshipComponent },
   { path: '**', component: PageNotFoundComponentComponent },
   { path: 'intro', component: IntroComponent }
   

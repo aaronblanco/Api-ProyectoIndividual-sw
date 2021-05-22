@@ -1,25 +1,25 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Character } from '../character/character.model';
+import { Planet } from '../planet/planet.model';
 import { SwServicesService } from '../sw-services.service';
 
 @Component({
-  selector: 'app-character-info',
-  templateUrl: './character-info.component.html',
-  styleUrls: ['./character-info.component.css']
+  selector: 'app-planet-info',
+  templateUrl: './planet-info.component.html',
+  styleUrls: ['./planet-info.component.css']
 })
-export class CharacterInfoComponent implements OnInit {
+export class PlanetInfoComponent implements OnInit {
 
-  @Input() characterId : number;
+  @Input() planetId : number;
   @Output() newItemEvent = new EventEmitter<string>();
-  characterInfo: Character;
+  planetInfo: Planet;
 
   constructor(private http: SwServicesService) { }
 //llamada a get character id
   ngOnInit(): void {
  
-    this.http.getCharacter(this.characterId)
-     .subscribe(character => {this.characterInfo = character,
-     console.log(this.characterInfo)
+    this.http.getPlanet(this.planetId)
+     .subscribe(planet => {this.planetInfo = planet,
+     console.log(this.planetInfo)
      });
 
      
@@ -28,6 +28,4 @@ export class CharacterInfoComponent implements OnInit {
   close(value: string) {
     this.newItemEvent.emit(value);
   }
-  
-
 }

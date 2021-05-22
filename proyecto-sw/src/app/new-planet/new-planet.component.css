@@ -1,9 +1,4 @@
-/* charactersComponent's private CSS styles */
-/*.formulario {
-  background-color: grey;
-  font-family: Arial, Helvetica, sans-serif;
 
-}*/
   .formulario {
     display: grid;
     grid-template-columns: 1fr 2fr;
@@ -88,9 +83,4 @@
      max-width:100%;
      width:auto;
      height:auto;
- }
- .starship {
-  border-color: rgb(255, 234, 0);
-  border: solid 3px;
-  text-align: center;
  }

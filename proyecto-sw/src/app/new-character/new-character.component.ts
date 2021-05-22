@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { Character } from '../character/character.model';
+import { Starship } from '../starship/starship.model';
 import { SwServicesService } from '../sw-services.service';
 
 
@@ -11,24 +13,42 @@ import { SwServicesService } from '../sw-services.service';
 export class NewCharacterComponent implements OnInit {
 
   characters: Character[];
+  starshipList: Starship[] = [];
+  
+  starship = []
+  character = new Character(0, '', 0, '', '', '', '', this.starship);
+  card = new Character(0, '', 0, '', '', '', '', this.starship);
 
-
-  character = new Character(0, '', 0, '', '', '', '');
- 
-
-  constructor(private characterService: SwServicesService) { }
+  constructor(private http: SwServicesService) { }
 
   ngOnInit(): void {
+   this.getStarships();
   }
  
-  addCharacter(){
-  this.characterService.addCharacter(this.character)
+
+  addCharacter(form: NgForm){
+    console.log(this.character);
+  this.http.addCharacter(this.character)
   .subscribe(character => {
     this.characters.push(character);
+  });
+  form.reset();
+  this.getCard(this.character);
+  }
+
+  getCard(character){
+    this.http.getCharacter(character.id).subscribe(character => {
+      this.card = character
   });
 
   }
 
-
+  getStarships(): void {
+    this.http.getStarships()
+    .subscribe(starships => {this.starshipList = starships
+      console.log(starships);
+    
+    });
+  }
 
 }

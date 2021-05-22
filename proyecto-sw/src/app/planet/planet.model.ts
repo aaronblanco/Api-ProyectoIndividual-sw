@@ -4,7 +4,9 @@ export class Planet{
         public name: string,
         public population: number,
         public diameter: number,
-        public species: string){
+        public species: string,
+        public url: string
+        ){
     }
 }
 

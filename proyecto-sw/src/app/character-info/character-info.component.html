@@ -1,20 +1,26 @@
 <div class="containerModal">
-<p>
-{{characterInfo.name}}
-</p>
-<p>
-{{characterInfo.age}}
-</p>
-<p>
-{{characterInfo.gender}}
-</p>
-<p>
-{{characterInfo.species}}
-</p>
-<p>
-{{characterInfo.weapon}}
-</p>
- <button type="button" >
-           
-</button>
+        <div class="contenModal">
+        <p>
+        Name of the character: {{characterInfo?.name}}
+        </p>
+        <p>
+        Age of the character: {{characterInfo?.age}}
+        </p>
+        <p>
+        Gender of the character: {{characterInfo?.gender}}
+        </p>
+        <p>
+        Species of the character: {{characterInfo?.species}}
+        </p>
+        <p>
+        Weapon of the character: {{characterInfo?.weapon}}
+        </p>
+        <p>
+        Starships of the character: {{characterInfo?.starship}}
+        </p>
+        <br>
+        <button type="button"  (click)='close("close")' >
+                Close
+        </button>
+        </div>
 </div>

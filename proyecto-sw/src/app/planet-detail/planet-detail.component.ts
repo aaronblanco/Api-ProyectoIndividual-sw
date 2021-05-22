@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Planet } from '../planet/planet.model';
+import { SwServicesService } from '../sw-services.service';
 
 @Component({
   selector: 'app-planet-detail',
@@ -7,9 +9,38 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PlanetDetailComponent implements OnInit {
 
-  constructor() { }
+  name = 'app';
+  mostrar = false;
+  // characterListSub: Subscription;
+   planetList: Planet[] = [];
+   id: string
+   
 
-  ngOnInit(): void {
-  }
+   constructor(private http: SwServicesService) { }
+ 
 
+ 
+   ngOnInit() {
+     this.getPlanets();
+    
+    
+    }
+    //Si ha saltado close es debido al output.
+    close(value: string) {
+     this.mostrar = false;
+     }
+
+    mostrarInfo(id): void{
+      this.id = id;
+      this.mostrar = true;
+
+    }
+
+
+    getPlanets(): void {
+     this.http.getPlanets().subscribe(planets => {this.planetList = planets
+       console.log(planets);
+     
+     });
+   }
 }

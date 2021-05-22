@@ -1,25 +1,24 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Character } from '../character/character.model';
+import { Starship } from '../starship/starship.model';
 import { SwServicesService } from '../sw-services.service';
 
 @Component({
-  selector: 'app-character-info',
-  templateUrl: './character-info.component.html',
-  styleUrls: ['./character-info.component.css']
+  selector: 'app-starship-info',
+  templateUrl: './starship-info.component.html',
+  styleUrls: ['./starship-info.component.css']
 })
-export class CharacterInfoComponent implements OnInit {
-
-  @Input() characterId : number;
+export class StarshipInfoComponent implements OnInit {
+  @Input() starshipId : number;
   @Output() newItemEvent = new EventEmitter<string>();
-  characterInfo: Character;
+  starshipInfo: Starship;
 
   constructor(private http: SwServicesService) { }
 //llamada a get character id
   ngOnInit(): void {
  
-    this.http.getCharacter(this.characterId)
-     .subscribe(character => {this.characterInfo = character,
-     console.log(this.characterInfo)
+    this.http.getStarship(this.starshipId)
+     .subscribe(starship => {this.starshipInfo = starship,
+     console.log(this.starshipInfo)
      });
 
      
@@ -29,5 +28,4 @@ export class CharacterInfoComponent implements OnInit {
     this.newItemEvent.emit(value);
   }
   
-
 }

@@ -1,34 +1,51 @@
 
 <div class="formulario">
-<h2>New character</h2> 
-<form (ngSubmit)="addCharacter()" #myForm="ngForm" class="form">
+    <div>
+    <h2>New character</h2> 
+    <form (ngSubmit)="addCharacter(myForm)" #myForm="ngForm"  class="form">
 
-    <label for="name">Character name: </label>
-    <input id="new-character" type="text" required name="name" [(ngModel)]="character.name"/>
+        <label for="name">Character name: </label>
+        <input id="new-character" type="text" required name="name" [(ngModel)]="character.name"/>
 
-    <label for="age">Character age: </label>
-    <input id="new-character-age" type="number" required name="age" [(ngModel)]="character.age"/>
+        <label for="age">Character age: </label>
+        <input id="new-character-age" type="number" required name="age" [(ngModel)]="character.age"/>
 
 
-    <label for="gender">Character gender: </label>
-    <select name="new-character-gender" class="input" [(ngModel)]="character.gender" required>
-                    <option>Male</option>
-                    <option>Female</option>
-                    <option>Other</option>
-                </select><br>
-  
-    <label for="species">Character species: </label>
-    <input id="new-character-species" type="text" name="species" [(ngModel)]="character.species"/>
-
-    <label for="weapon">Character weapon: </label>
-    <input id="new-character-weapon" type="text" name="weapon" [(ngModel)]="character.weapon"/>
+        <label for="gender">Character gender: </label>
+        <select name="new-character-gender" class="input" [(ngModel)]="character.gender" required>
+                        <option>Male</option>
+                        <option>Female</option>
+                        <option>Other</option>
+                    </select><br>
     
-    <label for="url">Character image: </label>
-    <input id="new-character-url" type="text" name="url" [(ngModel)]="character.url"/>
+        <label for="species">Character species: </label>
+        <input id="new-character-species" type="text" name="species" [(ngModel)]="character.species"/>
 
-    <button  routerLink="character">Back</button>
-    <button  type="submit" [disabled]="!myForm.form.valid">Add</button>
-</form>
- 
+        <label for="weapon">Character weapon: </label>
+        <input id="new-character-weapon" type="text" name="weapon" [(ngModel)]="character.weapon"/>
+        
+        <label for="url">Character image: </label>
+        <input id="new-character-url" type="text" name="url" [(ngModel)]="character.url"/>
 
+        <label for="starships">Character starships: </label>
+        <div class="starship" *ngFor="let starship of starshipList" >
+
+        <input type="checkbox" id="{{starship.id}}" name="{{starship.name}}" value="{{starship.name}}">
+        <label for="{{starship.name}}"> {{starship.name}}</label><br>
+
+        </div>
+        <button  routerLink="/">Back</button>
+        <button  type="submit" [disabled]="!myForm.form.valid">Add</button>
+    </form>
+
+    w
+        <div class="card-container">
+            <div class="card-content">
+                <img src="{{card.url}}" alt="Imagen {{card.name}}" onerror="this.onerror=null; this.src='assets/images/notFound.jpg'"> 
+                    <div class="card-title">                             
+                    <span class="card-text">{{card.name}}</span>                                      
+                    </div>                           
+            </div>
+        </div>
 </div>
+

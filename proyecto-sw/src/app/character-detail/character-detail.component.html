@@ -3,19 +3,17 @@
                 <div *ngFor="let character of characterList" class="card" (click)="mostrarInfo(character.id)"  >
                        
                                         <div class="card-content">
-                                            <img src="{{character.url}}" alt="Imagen {{character.name}}"> 
+                                            <img src="{{character.url}}" alt="Imagen {{character.name}}"  onerror="this.onerror=null; this.src='assets/images/notFound.jpg' style='height:100px;width:100px;' "> 
                                             <div class="card-title">
                                         
                                                 <span class="card-text">{{character.name}}</span>
                                             
                                             </div>    
                                
-                                        </div>
-                                    
-                                      
-                        
+                                        </div>     
                 </div>
             <div></div>
          </div>
 
-        <app-character-info *ngIf="mostrar" characterId]="id" > </app-character-info>
+        <app-character-info (newItemEvent)="close($event)" *ngIf="mostrar" [characterId]="id"> </app-character-info>
+       <!-- En esta linea creamos un evento para cerrar con output y enviamos una id para introducir nuestro modal, está hecho de dos maneras distintas.-->

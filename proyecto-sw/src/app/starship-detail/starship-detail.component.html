@@ -1,1 +1,19 @@
-<p>starship-detail works!</p>
+        <div class="card-container">
+        <div></div>
+                <div *ngFor="let starship of starshipList" class="card" (click)="mostrarInfo(starship.id)"  >
+                       
+                                        <div class="card-content">
+                                            <img src="{{starship.url}}" alt="Imagen {{starship.name}}"  onerror="this.onerror=null; this.src='assets/images/notFound.jpg' style='height:100px;width:100px;' "> 
+                                            <div class="card-title">
+                                        
+                                                <span class="card-text">{{starship.name}}</span>
+                                            
+                                            </div>    
+                               
+                                        </div>     
+                </div>
+            <div></div>
+         </div>
+
+        <app-starship-info (newItemEvent)="close($event)" *ngIf="mostrar" [starshipId]="id"> </app-starship-info>
+       <!-- En esta linea creamos un evento para cerrar con output y enviamos una id para introducir nuestro modal, está hecho de dos maneras distintas.-->
